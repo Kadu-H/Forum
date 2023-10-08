@@ -1,9 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
-const connectDB = require("./db/ConnectMongoDB.js")
+const connectDB = require("./db/ConnectMongoDB")
 
 const RouteAuth = require("./routes/RouteAuth");
+const RouteQuote = require("./routes/RouteQuote");
 
 require('dotenv').config();
 
@@ -24,4 +25,5 @@ app.get('/', (req, res) => {
 
 app.use(express.json());
 app.use("/auth", RouteAuth);
+app.use("/quote", RouteQuote);
 start();
